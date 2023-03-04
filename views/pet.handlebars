@@ -1,0 +1,13 @@
+    <h1>Pet</h1>
+      
+         {{#each listarPet}}
+<h1> {{nome_pet}} </h1>
+
+<p>Este PET tem como dono {{nome_dono}}, é da raça {{raca}}, tem {{idade}} anos e pesa {{peso}} kg. </p>
+
+
+
+<a href="/controlepet/editpet/{{id}}">Editar</a>
+<a href="/controlepet/removepet/{{id}}" >excluir</a>
+
+{{/each}}

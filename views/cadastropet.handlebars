@@ -1,0 +1,11 @@
+<h1>Pets cadastrados</h1>
+
+<div class="prod-container">
+    {{#each listar}}
+     
+    <strong> #{{this.id}} </strong> -  
+    <a href="/controlepet/{{this.id}}">{{nome_pet}}</a> - Nome do Dono: {{nome_dono}}, Raça: {{raca}}, Idade do Pet: {{idade}}, Peso: {{peso}}  <br>
+
+    {{/each}}
+
+</div>
