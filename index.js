@@ -1,28 +1,28 @@
 // importar express
-var express = require('express');
-// importar o handlebars
-const exphbs = require('express-handlebars')
-const mysql = require('mysql')
-// variável para definir o express
-var app = express();
-var port = 3000
 
-// configuração handlebars
+const express = require('express');
+const { engine } = require('express-handlebars');
+const app = express();
+const mysql = require('mysql');
+var port = 3000;
 
-app.engine('handlebars', exphbs.engine())
-app.set('view engine', 'handlebars')
+app.engine('handlebars', engine({defaultLayout : 'main'})); //Essa linha de código define como layout principal para todas as outras paginas
+app.set('view engine', 'handlebars');
+app.set('views', './views');
 
-
-//rotas 
-//rota raiz
-
+//ROTA RAIZ
 app.get('/', (req, res) => {
-  res.render('home', { layout: false })
-})
+    res.render('home');
+});
 
 
-app.get('/homepet', (req, res) => {
-  res.render('homepet', { layout: false })
+
+// ESPECIFICAR ARQUIVOS ESTATICOS
+app.use(express.static(__dirname + '/public'));
+
+//ROTAS
+app.get('/cadastropet', (req, res) => {
+  res.render('cadastropet')
 })
 
 //express url
@@ -51,8 +51,8 @@ app.post('/controlepet/insertpet', (req, res) => {
   })
 })
 
-//rota de consulta geral
-app.get('/controlepet', (req, res) => {
+//rota de consulta geral. Aqui irá listar todos os pets cadastrados
+app.get('/exibirpet', (req, res) => {
   const sql = 'SELECT * FROM pets'
 
   conn.query(sql, function(err, data){
@@ -65,7 +65,7 @@ app.get('/controlepet', (req, res) => {
       
       console.log(listarPet)
 
-      res.render('pet', { layout: false, listarPet })
+      res.render('pet', { listarPet })
 
   })
 })
@@ -177,7 +177,7 @@ app.get('/controlepet/removepet/:id', (req, res) => {
 // conexao banco de dados
 const conn = mysql.createConnection({
   host: 'localhost',
-  port: '3307',
+  port: '3306',
   user: 'root',
   password: '',
   database: 'projfinal'
