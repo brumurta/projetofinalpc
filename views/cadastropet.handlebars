@@ -1,11 +1,39 @@
-<h1>Pets cadastrados</h1>
-
-<div class="prod-container">
-    {{#each listar}}
-     
-    <strong> #{{this.id}} </strong> -  
-    <a href="/controlepet/{{this.id}}">{{nome_pet}}</a> - Nome do Dono: {{nome_dono}}, Raça: {{raca}}, Idade do Pet: {{idade}}, Peso: {{peso}}  <br>
-
-    {{/each}}
-
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow">
+                <div class="card-body">
+                    <h1 class="card-title">Cadastro de Pet</h1>
+                    <form action="controlepet/insertpet" method="POST">
+                        <div class="form-group">
+                            <label for="input1">Nome do Pet:</label>
+                            <input type="text" name="nome_pet" class="form-control shadow" id="input1"
+                                placeholder="Digite o nome do pet">
+                        </div>
+                        <div class="form-group">
+                            <label for="input1">Nome do Dono:</label>
+                            <input type="text" name="nome_dono" class="form-control shadow" id="input2"
+                                placeholder="Digite o nome do cliente">
+                        </div>
+                        <div class="form-group">
+                            <label for="input2">Raça do Pet:</label>
+                            <input type="text" name="raca" class="form-control shadow" id="input3"
+                                placeholder="Digite a raça do pet">
+                        </div>
+                        <div class="form-group">
+                            <label for="input3">Idade do Pet:</label>
+                            <input type="text" name="idade" class="form-control shadow" id="input4"
+                                placeholder="Digite a idade do pet">
+                        </div>
+                        <div class="form-group">
+                            <label for="input4">Peso do Pet:</label>
+                            <input type="text" name="peso" class="form-control shadow" id="input5"
+                                placeholder="Digite o peso do pet">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Cadastrar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
