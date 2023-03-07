@@ -1,0 +1,30 @@
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow">
+                <div class="card-body">
+                    <h1 class="card-title">Cadastro de tratamento</h1>
+                    <form action="/controletratamento/insert_tratamento" method="POST">
+                        <div class="form-group">
+                            <label for="input1">Nome do Procedimento:</label>
+                            <input type="text" name="procedimento" class="form-control shadow" id="input1"
+                                placeholder="Digite o nome do procedimento">
+                        </div>
+                        <div class="form-group">
+                            <label for="input1">Especie:</label>
+                            <input type="text" name="especie" class="form-control shadow" id="input2"
+                                placeholder="Digite o nome da especie">
+                        </div>
+                        <div class="form-group">
+                            <label for="input2">Preco:</label>
+                            <input type="number" name="preco" class="form-control shadow" id="input3"
+                                placeholder="Digite o valor">
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary">Cadastrar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
