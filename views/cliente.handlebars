@@ -1,0 +1,24 @@
+<h1 class="centralizar">Lista dos clientes cadastrados</h1>
+<table class="table">
+    {{#each listarCliente}}
+    <thead>
+        <tr>
+            
+            <th>Nome</th>
+            <th>Nome do Pet</th>
+            <th>CPF</th>
+            <th>Telefone</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>{{nome_cliente}}</td>
+            <td>{{nome_pet}}</td>
+            <td>{{cpf}}</td>
+            <td>{{telefone}}</td>
+            
+        </tr>
+    </tbody>
+    {{/each}}
+</table>

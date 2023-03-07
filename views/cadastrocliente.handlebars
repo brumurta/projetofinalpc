@@ -1,0 +1,34 @@
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow">
+                <div class="card-body">
+                    <h1 class="card-title">Cadastro de Clientes</h1>
+                    <form action="controlecliente/insertcliente" method="POST">
+                        <div class="form-group">
+                            <label for="input1">Nome do cliente:</label>
+                            <input type="text" name="nome_cliente" class="form-control shadow" id="input1"
+                                placeholder="Digite o nome do cliente">
+                        </div>
+                        <div class="form-group">
+                            <label for="input1">Nome do Pet:</label>
+                            <input type="text" name="nome_pet" class="form-control shadow" id="input2"
+                                placeholder="Digite o nome do pet">
+                        </div>
+                        <div class="form-group">
+                            <label for="input2">CPF do cliente:</label>
+                            <input type="text" name="cpf" class="form-control shadow" id="input3"
+                                placeholder="Digite o CPF do cliente">
+                        </div>
+                        <div class="form-group">
+                            <label for="input3">Telefone do Cliente:</label>
+                            <input type="text" name="telefone" class="form-control shadow" id="input4"
+                                placeholder="Digite o telefone do cliente">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Cadastrar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,26 @@
+    <h1>Editar Cadastro de Cliente</h1>
+    <hr>
+    <form action="/controlecliente/updatecliente" method="POST">
+        <div class="form-control">
+            <label for="nome_cliente">Nome do Cliente:</label>
+            <input type="text" name="nome_cliente" placeholder="Digite o nome do cliente" value="{{cliente.nome_cliente}}">
+        </div>
+
+        <div class="form-control">
+           
+            <label for="nome_pet">Nome do Pet:</label>
+            <input type="text" name="nome_pet" placeholder="Digite o nome do Pet" value="{{cliente.nome_pet}}">
+        </div>
+
+         <div class="form-control">
+            <label for="cpf">Digite o CPF:</label>
+            <input type="number" name="cpf" placeholder="Digite o CPF do cliente" value="{{cliente.cpf}}">
+        </div>
+
+         <div class="form-control">
+            <label for="telefone">Digite o telefone:</label>
+            <input type="number" name="telefone" placeholder="Digite o telefone do cliente" value="{{cliente.telefone}}">
+        </div>
+    
+        <input type="submit" value="Editar">
+    </form>

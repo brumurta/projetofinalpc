@@ -30,6 +30,7 @@ body {
 }
 .bg-azul {
   background-color: #05071d;
+  border: 2px solid red;;
 }
 .principal{
   height: 1000px;
