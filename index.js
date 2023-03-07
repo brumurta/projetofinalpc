@@ -24,6 +24,11 @@ app.use(express.static(__dirname + '/public'));
 app.get('/cadastropet', (req, res) => {
   res.render('cadastropet')
 })
+/////tratamento/////////
+
+app.get('/cadastrotratamento', (req, res) => {
+  res.render('cadastrotratamento')
+})
 
 //express url
 app.use(
@@ -32,7 +37,7 @@ app.use(
 
   })
 )
-//rota para inserir dados
+//////////////////ROTA INSERIR DADOS PET//////////////////////////
 app.post('/controlepet/insertpet', (req, res) => {
   const nome_pet = req.body.nome_pet
   const nome_dono = req.body.nome_dono
@@ -50,6 +55,33 @@ app.post('/controlepet/insertpet', (req, res) => {
     res.redirect('/')
   })
 })
+
+/////////////////INSERIR DADOS EM TRATAMENTO/////////////
+
+
+app.post('/controletratamento/insert_tratamento', (req, res) => {
+  const procedimento = req.body.procedimento
+  const especie = req.body.especie
+  const preco = req.body.preco
+  
+
+  const sql = `INSERT INTO tratamento (procedimento, especie, preco) VALUES ('${procedimento}', '${especie}', '${preco}')`
+
+  conn.query(sql, function (err) {
+    if (err) {
+      console.log(err)
+    }
+
+    res.redirect('/')
+  })
+})
+
+
+
+
+
+
+//////////////////FIM////////////////
 
 //rota de consulta geral. Aqui irá listar todos os pets cadastrados
 app.get('/exibirpet', (req, res) => {
@@ -69,7 +101,28 @@ app.get('/exibirpet', (req, res) => {
 
   })
 })
+/////////////EXIBIR TRATAMENTO/////////////////////////
 
+
+//rota de consulta geral. Aqui irá listar todos os TRATAMENTOS cadastrados
+app.get('/exibirtratamento', (req, res) => {
+  const sql = 'SELECT * FROM tratamento'
+
+  conn.query(sql, function(err, data){
+      if(err){
+          console.log(err)
+          return
+      }
+  
+      const listarTratamento = data
+      
+      console.log(listarTratamento)
+
+      res.render('tratamento', { listarTratamento})
+
+  })
+})
+/////////////FIM/////////////////////////
 
 // consulta um registo pelo id (produto.handlebars)
 app.get('/controlepet/:id', (req, res) => {
@@ -89,14 +142,42 @@ app.get('/controlepet/:id', (req, res) => {
   })
 })
 
+/////////////EXIBIR TRATAMENTO PELO ID/////////////////////////
 
 
-//rota do buscar
+
+app.get('/controletratamento/:id_tratamento', (req, res) => {
+  const id_tratamento = req.params.id_tratamento
+  
+  const sql = `SELECT * FROM tratamento WHERE id_tratamento = ${id_tratamento}`
+
+  conn.query(sql, function(err, data){
+      if(err){
+          console.log(err)
+          return
+      }
+
+      const listarTratamento = data
+      res.render('tratamento', {  layout: false, listarTratamento } )
+
+  })
+})
+////////////////////////FIM//////////////////////////////
+
+
+//////////ROTA DO BUSCAR PET//////////////////////
 app.get('/buscapet', (req, res) => {
-  res.render('buscapet', { layout: false })
+  res.render('buscapet')
 })
 
+///////////////ROTA DO BUSCAR TRATAMENTO/////////////////
+app.get('/buscatratamento', (req, res) => {
+  res.render('buscatratamento')
+})
 
+/////////////////FIMM//////////////////////////
+
+//////////RESULTADO PET/////////////////////////
 //rota busc para exibir o resultado do buscar
 app.post('/resultadopet/', (req, res) => {
   const nome_pet = req.body.nome_pet
@@ -108,10 +189,35 @@ app.post('/resultadopet/', (req, res) => {
       return
     }
      const listarPet = data
-     res.render('pet', {  layout: false, listarPet } )
+     res.render('pet', { listarPet } )
      })
     })
-  
+  ///////////////////////FIM///////////////////////
+
+//////////RESULTADO PET/////////////////////////
+
+app.post('/resultadotratamento/', (req, res) => {
+  const procedimento = req.body.procedimento
+  const sql = `SELECT * FROM tratamento WHERE procedimento = '${procedimento}'`
+
+  conn.query(sql, function(err, data){
+     if(err){
+     console.log(err)
+      return
+    }
+     const listarTratamento = data
+     res.render('tratamento', { listarTratamento } )
+     })
+    })
+  ///////////////////////FIM///////////////////////
+
+
+
+
+
+
+
+
     // rota para pegar dados para editar registro
 app.get('/controlepet/editpet/:id', (req, res) => {
     
@@ -177,7 +283,7 @@ app.get('/controlepet/removepet/:id', (req, res) => {
 // conexao banco de dados
 const conn = mysql.createConnection({
   host: 'localhost',
-  port: '3306',
+  port: '3307',
   user: 'root',
   password: '',
   database: 'projfinal'
