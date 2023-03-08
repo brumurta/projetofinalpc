@@ -32,8 +32,8 @@ app.use(
 
   })
 )
-
-/////////////////INSERIR DADOS EM TRATAMENTO/////////////
+/////////TRATAMENTO///////TRATAMENTO/////////TRATAMENTO///////TRATAMENTO/////////TRATAMENTO///////TRATAMENTO/////////TRATAMENTO///////
+//Rota de cadastro
 app.get('/cadastrotratamento', (req, res) => {
   res.render('cadastrotratamento')
 })
@@ -97,7 +97,7 @@ app.get('/controlepet/:id', (req, res) => {
       return
     }
     const listarPet = data
-    res.render('pet', { layout: false, listarPet })
+    res.render('pet', { listarPet })
   })
 })
 
@@ -257,7 +257,7 @@ app.get('/controlecliente/:cpf', (req, res) => {
 
 //UPDATE//UPDATE//UPDATE//UPDATE//UPDATE//UPDATE//UPDATE//UPDATE//UPDATE//UPDATE//UPDATE//UPDATE
 // rota para pegar dados para editar registro CLIENTE
-app.get('/controlecliente/editcliente:cpf', (req, res) => {
+app.get('/controlecliente/editcliente/:cpf', (req, res) => {
 
   const cpf = req.params.cpf
 
@@ -269,7 +269,7 @@ app.get('/controlecliente/editcliente:cpf', (req, res) => {
       return
     }
 
-    const cliente = data
+    const cliente = data[0]
     res.render('editcliente', { cliente })
 
   })
@@ -290,7 +290,7 @@ app.post('/controlecliente/updatecliente', (req, res) => {
       return
     }
 
-    res.redirect('/controlecliente')
+    res.redirect('/exibircliente')
   })
 
 })
@@ -308,7 +308,7 @@ app.get('/controlecliente/removecliente/:cpf', (req, res) => {
       return
     }
 
-    res.redirect('/controlecliente')
+    res.redirect('/exibircliente')
   })
 })
 
@@ -390,7 +390,7 @@ app.get('/controlepet/:id', (req, res) => {
     }
 
     const listarPet = data
-    res.render('pet', { layout: false, listarPet })
+    res.render('pet', { listarPet })
 
   })
 })
@@ -433,7 +433,7 @@ app.post('/controlepet/updatepet', (req, res) => {
       return
     }
 
-    res.redirect('/controlepet')
+    res.redirect('/exibirpet')
   })
 
 })
@@ -451,7 +451,7 @@ app.get('/controlepet/removepet/:id', (req, res) => {
       return
     }
 
-    res.redirect('/controlepet')
+    res.redirect('/exibirpet')
   })
 })
 
@@ -566,7 +566,7 @@ app.get('/controlevet/editvet/:crmv', (req, res) => {
       return
     }
 
-    const veterinario = data
+    const veterinario = data[0]
     res.render('editvet', { veterinario })
 
   })
@@ -581,7 +581,7 @@ app.post('/controlevet/updatevet', (req, res) => {
   const email = req.body.email
 
 
-  const sql = `UPDATE veterinario SET nome = '${nome}', telefone  = '${telefone}', email = '${email}', WHERE crmv = '${crmv}'`
+  const sql = `UPDATE veterinario SET nome = '${nome}', telefone  = '${telefone}', email = '${email}' WHERE crmv = '${crmv}'`
 
   conn.query(sql, function (err) {
     if (err) {
@@ -589,7 +589,7 @@ app.post('/controlevet/updatevet', (req, res) => {
       return
     }
 
-    res.redirect('/controlevet')
+    res.redirect('/exibirvet')
   })
 
 })
@@ -597,7 +597,7 @@ app.post('/controlevet/updatevet', (req, res) => {
 
 //DELETE//DELETE//DELETE//DELETE//DELETE//DELETE//DELETE//DELETE//DELETE//DELETE//DELETE//DELETE//DELETE//DELETE//DELETE
 //rota para deletar um registro
-app.get('/controlevet/removevet/: crmv', (req, res) => {
+app.get('/controlevet/removevet/:crmv', (req, res) => {
   const crmv = req.params.crmv
 
   const sql = `DELETE FROM veterinario WHERE crmv = '${crmv}'`
@@ -608,7 +608,7 @@ app.get('/controlevet/removevet/: crmv', (req, res) => {
       return
     }
 
-    res.redirect('/controlevet')
+    res.redirect('/exibirvet')
   })
 })
 
@@ -762,7 +762,7 @@ app.get('/controleconsulta/removeconsulta/:id', (req, res) => {
 // conexao banco de dados
 const conn = mysql.createConnection({
   host: 'localhost',
-  port: '3306',
+  port: '3307',
   user: 'root',
   password: '',
   database: 'projfinal'
