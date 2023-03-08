@@ -1,6 +1,5 @@
 <h1 class="centralizar">Lista dos Pets</h1>
 <table class="table">
-    {{#each listarPet}}
     <thead>
         <tr>
             <th>id</th>
@@ -11,6 +10,7 @@
             <th>Peso</th>
         </tr>
     </thead>
+    {{#each listarPet}}
     <tbody>
         <tr>
             <td>{{id}}</td>
@@ -19,6 +19,9 @@
             <td>{{raca}}</td>
             <td>{{idade}}</td>
             <td>{{peso}}</td>
+            <td><a type="button" class="btn btn-success" href="/controlepet/editpet/{{id}}">Editar</a>
+            </td>
+            <td><a type="button" class="btn btn-danger" href="/controlepet/removepet/{{id}}">excluir</a></td>
         </tr>
     </tbody>
     {{/each}}
