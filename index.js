@@ -513,6 +513,7 @@ app.get('/exibirvet', (req, res) => {
   })
 })
 
+//Rota para renderizar buscavet.handlebars
 app.get('/buscavet', (req, res) => {
   res.render('buscavet')
 })
@@ -608,6 +609,149 @@ app.get('/controlevet/removevet/: crmv', (req, res) => {
     }
 
     res.redirect('/controlevet')
+  })
+})
+
+
+
+///////////CONSULTA////////CONSULTA///////////CONSULTA///////////CONSULTA////////CONSULTA///////////CONSULTA
+app.get('/cadastroconsulta', (req, res) => {
+  res.render('cadastroconsulta')
+})
+
+//CREATE//CREATE//CREATE//CREATE//CREATE//CREATE//CREATE//CREATE//CREATE//CREATE//CREATE//CREATE//CREATE//CREATE//
+//rota para inserir dados
+app.post('/controleconsulta/insertconsulta', (req, res) => {
+  const pet = req.body.pet
+  const nome_vet = req.body.nome_vet
+  const dono_pet= req.body.dono_pet
+  
+
+
+  const sql = `INSERT INTO consulta (pet, nome_vet, dono_pet) VALUES ('${pet}', '${nome_vet}', '${dono_pet}')`
+
+  conn.query(sql, function (err) {
+    if (err) {
+      console.log(err)
+    }
+
+    res.redirect('/exibirconsulta')
+  })
+})
+
+//READ//READ//READ//READ//READ//READ//READ//READ//READ//READ//READ//READ//READ//READ//READ//READ//READ//READ
+app.get('/exibirconsulta', (req, res) => {
+  const sql = 'SELECT * FROM consulta'
+
+  conn.query(sql, function (err, data) {
+    if (err) {
+      console.log(err)
+      return
+    }
+
+    const listarConsulta = data
+
+    console.log(listarConsulta)
+
+    res.render('consulta', { listarConsulta })
+
+  })
+})
+//Rota para renderizar buscavet.handlebars
+app.get('/buscaconsulta', (req, res) => {
+  res.render('buscaconsulta')
+})
+
+//rota busc para exibir o resultado do buscar
+app.post('/resultadoconsulta', (req, res) => {
+  const pet = req.body.pet
+  const sql = `SELECT * FROM consulta WHERE pet = '${pet}'`
+
+  conn.query(sql, function (err, data) {
+    if (err) {
+      console.log(err)
+      return
+    }
+    const listarConsulta = data
+    res.render('consulta', { listarConsulta })
+  })
+})
+
+// consulta um registo pelo id (vet.handlebars)
+app.get('/controleconsulta/:id', (req, res) => {
+  const id = req.params.id
+
+  const sql = `SELECT * FROM consulta WHERE id = ${id}`
+
+  conn.query(sql, function (err, data) {
+    if (err) {
+      console.log(err)
+      return
+    }
+
+    const listarConsulta = data
+    res.render('consulta', { listarConsulta})
+
+  })
+})
+
+//UPDATE//UPDATE//UPDATE//UPDATE//UPDATE//UPDATE//UPDATE//UPDATE//UPDATE//UPDATE//UPDATE//UPDATE//UPDATE//UPDATE
+// rota para pegar dados para editar registro
+app.get('/controleconsulta/editconsulta/:id', (req, res) => {
+
+  const id = req.params.id
+
+  const sql = `SELECT * FROM consulta where id = ${id}`
+
+  conn.query(sql, function (err, data) {
+    if (err) {
+      console.log(err)
+      return
+    }
+
+    const consulta = data[0]
+    res.render('editconsulta', { consulta })
+
+  })
+})
+
+//rota de edicao do registro com post
+app.post('/controleconsulta/updateconsulta', (req, res) => {
+
+  const id = req.body.id
+  const pet = req.body.pet
+  const nome_vet = req.body.nome_vet
+  const dono_pet = req.body.dono_pet
+ 
+  
+  const sql = `UPDATE consulta SET pet = '${pet}', nome_vet = '${nome_vet}', dono_pet = '${dono_pet}' WHERE id = '${id}'` 
+
+  conn.query(sql, function(err) {
+      if(err){
+          console.log(err)
+          return
+      }
+
+      res.redirect('/exibirconsulta')
+  })
+
+})
+
+
+//DELETE//DELETE//DELETE//DELETE//DELETE//DELETE//DELETE//DELETE//DELETE//DELETE//DELETE//DELETE//DELETE//DELETE//DELETE
+//rota para deletar um registro
+app.get('/controleconsulta/removeconsulta/:id', (req, res) => {
+  const id = req.params.id
+
+  const sql = `DELETE FROM consulta WHERE id = '${id}'`
+
+  conn.query(sql, function(err){
+      if(err){
+          console.log(err)
+          return
+      }
+
+      res.redirect('/exibirconsulta')
   })
 })
 
