@@ -1,25 +1,29 @@
-<h1 class="centralizar">Editar Cadastro</h1>
-   
-    <form action="/controletratamento/updatetratamento" method="POST">
-        <div class="form-control">
-            <input type="hidden" name="id_tratamento" id="id" value="{{tratamento.id_tratamento}}">
-            <label for="procedimento">Nome do Pet:</label>
-            <input type="text" name="procedimento" placeholder="Digite o nome do procedimento" value="{{tratamento.procedimento}}">
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow">
+                <div class="card-body">
+                    <h1 class="card-title">Editar Algum tratamento</h1>
+                    <form action="/controletratamento/updatetratamento" method="POST">
+                        <div class="form-control">
+                            <input type="hidden" name="id_tratamento" id="id" value="{{tratamento.id_tratamento}}">
+                            <label for="procedimento">Nome do Pet:</label>
+                            <input type="text" name="procedimento" placeholder="Digite o nome do procedimento"
+                              class="form-control shadow"  value="{{tratamento.procedimento}}">
+                        </div>
+                        <div class="form-control">
+                            <label for="especie">Especifique a Especie</label>
+                            <input type="text" name="especie" class="form-control shadow" placeholder="Digite o nome da especie"
+                                value="{{tratamento.especie}}">
+                        </div>
+                        <div class="form-control">
+                            <label for="preco">Valor</label>
+                            <input type="text" name="preco" placeholder="Digite o valor" class="form-control shadow" value="{{tratamento.preco}}">
+                        </div>
+                        <input type="submit" class="btn btn-primary" value="Editar">
+                    </form>
+                </div>
+            </div>
         </div>
-
-        <div class="form-control">
-           
-            <label for="especie">Especifique a Especie</label>
-            <input type="text" name="especie" placeholder="Digite o nome da especie" value="{{tratamento.especie}}">
-        </div>
-
-        <div class="form-control">
-           
-            <label for="preco">Valor</label>
-            <input type="text" name="preco" placeholder="Digite o valor" value="{{tratamento.preco}}">
-        </div>
-
-        
-    
-        <input type="submit" value="Editar">
-    </form>
+    </div>
+</div>
