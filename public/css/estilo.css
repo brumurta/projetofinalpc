@@ -30,8 +30,11 @@ body {
 }
 .bg-azul {
   background-color: #05071d;
-  border: 2px solid red;;
 }
 .principal{
-  height: 1000px;
+  height: 100vh;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(../img/fundo_cao.png);
+  background-size: cover;
+  background-position: center;
+
 }
