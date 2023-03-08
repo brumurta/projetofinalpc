@@ -1,0 +1,29 @@
+<h1>Editar Cadastro</h1>
+    <hr>
+    <form action="/controlevet/updatevet" method="POST">
+        <div class="form-control">
+            <label for="nome">Nome do veterinario:</label>
+            <input type="text" name="nome" placeholder="Digite o nome do veterinario" value="{{veterinario.nome}}">
+        </div>
+
+        <div class="form-control">
+           
+            <label for="crmv">Crmv do veterinario:</label>
+            <input type="text" name="crmv" placeholder="Digite o crmv do veterinario" value="{{veterinario.crmv}}">
+        </div>
+
+        <div class="form-control">
+           
+            <label for="telefone">Telefone do veterinario:</label>
+            <input type="text" name="telefone" placeholder="Digite o telefone do veterinario" value="{{veterinario.telefone}}">
+        </div>
+
+         <div class="form-control">
+            <label for="email">Email do veterinario:</label>
+            <input type="text" name="email" placeholder="Digite o email do veterinario" value="{{veterinario.email}}">
+        </div>
+
+        
+    
+        <input type="submit" value="Editar">
+    </form>

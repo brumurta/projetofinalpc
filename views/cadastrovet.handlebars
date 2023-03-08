@@ -1,0 +1,35 @@
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow">
+                <div class="card-body">
+                    <h1 class="card-title">Cadastro do veterinário</h1>
+                    <form action="controlevet/insertvet" method="POST">
+                        <div class="form-group">
+                            <label for="input1">Nome do veterinário:</label>
+                            <input type="text" name="nome" class="form-control shadow"
+                                placeholder="Digite o nome do veterinário">
+                        </div>
+                        <div class="form-group">
+                            <label for="input1">Crmv do veterinário:</label>
+                            <input type="text" name="crmv" class="form-control shadow"
+                                placeholder="Digite o crmv do veterinário">
+                        </div>
+                        <div class="form-group">
+                            <label for="input2">Telefone do veterinário:</label>
+                            <input type="text" name="telefone" class="form-control shadow"
+                                placeholder="Digite o telefone do veterinário">
+                        </div>
+                        <div class="form-group">
+                            <label for="input2">Email do veterinário</label>
+                            <input type="text" name="email"  class="form-control shadow"
+                                placeholder="Digite o email do veterinário">
+                        </div>
+                       
+                        <button type="submit" class="btn btn-primary">Cadastrar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

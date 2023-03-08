@@ -35,6 +35,11 @@ app.get('/cadastrocliente', (req, res) => {
   res.render('cadastrocliente')
 })
 
+//rota vet//
+app.get('/cadastrovet', (req, res) => {
+  res.render('cadastrovet')
+})
+
 //express url
 app.use(
   express.urlencoded({
@@ -562,6 +567,145 @@ conn.query(sql, function(err){
     res.redirect('/controlepet')
 })
 })
+
+//rota para inserir dados
+app.post('/controlevet/insertvet', (req, res) => {
+  const nome = req.body.nome
+  const crmv = req.body.crmv
+  const telefone = req.body.telefone
+  const email =  req.body.email
+  
+
+  const sql = `INSERT INTO veterinario (nome, crmv, telefone, email) VALUES ('${nome}', '${crmv}', '${telefone}', '${email}' )`
+
+  conn.query(sql, function (err) {
+    if (err) {
+      console.log(err)
+    }
+
+    res.redirect('/exibirvet')
+  })
+})
+
+//rota de consulta geral. Aqui irá listar todos os Veterinarios cadastrados
+app.get('/exibirvet', (req, res) => {
+  const sql = 'SELECT * FROM veterinario'
+
+  conn.query(sql, function(err, data){
+      if(err){
+          console.log(err)
+          return
+      }
+  
+      const listarVeterinario = data
+      
+      console.log(listarVeterinario)
+
+      res.render('Veterinario', { listarVeterinario})
+
+  })
+})
+
+
+// consulta um registo pelo id (vet.handlebars)
+app.get('/controlevet/:crmv', (req, res) => {
+  const crmv = req.params.crmv
+  
+  const sql = `SELECT * FROM veterinario WHERE crmv = ${crmv}`
+
+  conn.query(sql, function(err, data){
+      if(err){
+          console.log(err)
+          return
+      }
+
+      const listarVeterinario = data
+      res.render('veterinario', { listarVeterinario } )
+
+  })
+})
+
+
+
+//rota do buscar
+app.get('/buscavet', (req, res) => {
+  res.render('buscavet')
+})
+
+
+//rota busc para exibir o resultado do buscar
+app.post('/resultadovet', (req, res) => {
+  const nome  = req.body.nome
+  const sql = `SELECT * FROM veterinario WHERE nome = '${nome}'`
+
+  conn.query(sql, function(err, data){
+     if(err){
+     console.log(err)
+      return
+    }
+     const listarVeterinario = data
+     res.render('veterinario', { listarVeterinario} )
+     })
+    })
+  
+    // rota para pegar dados para editar registro
+app.get('/controlevet/editvet/:crmv', (req, res) => {
+    
+  const crmv= req.params.crmv
+
+  const sql = `SELECT * FROM veterinario where crmv = ${crmv}`
+
+  conn.query(sql, function(err, data){
+      if(err){
+          console.log(err)
+          return
+      }
+
+      const veterinario = data
+      res.render('editvet', { veterinario } )
+
+  })
+})
+
+
+//rota de edicao do registro com post
+app.post('/controlevet/updatevet', (req, res) => {
+
+  const nome = req.body.nome
+  const crmv = req.body.crmv
+  const telefone = req.body.telefone
+  const email =  req.body.email
+  
+  
+  const sql = `UPDATE veterinario SET nome = '${nome}', telefone  = '${telefone}', email = '${email}', WHERE crmv = '${crmv}'` 
+
+  conn.query(sql, function(err) {
+      if(err){
+          console.log(err)
+          return
+      }
+
+      res.redirect('/controlevet')
+  })
+
+})
+
+//rota para deletar um registro
+app.get('/controlevet/removevet/: crmv', (req, res) => {
+  const crmv = req.params.crmv
+
+  const sql = `DELETE FROM veterinario WHERE crmv = '${crmv}'`
+
+  conn.query(sql, function(err){
+      if(err){
+          console.log(err)
+          return
+      }
+
+      res.redirect('/controlevet')
+  })
+})
+
 
 
 
