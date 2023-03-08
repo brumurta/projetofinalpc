@@ -1,0 +1,25 @@
+<h1 class="centralizar">Editar Cadastro</h1>
+   
+    <form action="/controletratamento/updatetratamento" method="POST">
+        <div class="form-control">
+            <input type="hidden" name="id_tratamento" id="id" value="{{tratamento.id_tratamento}}">
+            <label for="procedimento">Nome do Pet:</label>
+            <input type="text" name="procedimento" placeholder="Digite o nome do procedimento" value="{{tratamento.procedimento}}">
+        </div>
+
+        <div class="form-control">
+           
+            <label for="especie">Especifique a Especie</label>
+            <input type="text" name="especie" placeholder="Digite o nome da especie" value="{{tratamento.especie}}">
+        </div>
+
+        <div class="form-control">
+           
+            <label for="preco">Valor</label>
+            <input type="text" name="preco" placeholder="Digite o valor" value="{{tratamento.preco}}">
+        </div>
+
+        
+    
+        <input type="submit" value="Editar">
+    </form>
