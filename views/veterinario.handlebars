@@ -1,6 +1,5 @@
 <h1 class="centralizar">Lista dos Veterinarios</h1>
 <table class="table">
-    {{#each listarVeterinario}}
     <thead>
         <tr>
             <th>Nome</th>
@@ -10,12 +9,17 @@
             
         </tr>
     </thead>
+    {{#each listarVeterinario}}
+    
     <tbody>
         <tr>
             <td>{{nome}}</td>
             <td>{{crmv}}</td>
             <td>{{telefone}}</td>
             <td>{{email}}</td>
+            <td><a type="button" class="btn btn-success" href="/controlevet/editvet/{{crmv}}">Editar</a>
+            </td>
+            <td><a type="button" class="btn btn-danger" href="/controlevet/removevet/{{crmv}}">excluir</a></td>
         </tr>
     </tbody>
     {{/each}}
