@@ -1,0 +1,26 @@
+<h1 class="centralizar">Editar Cadastro</h1>
+   
+    <form action="/controleconsulta/updateconsulta" method="POST">
+        <div class="form-control">
+            <input type="hidden" name="id" id="id" value="{{consulta.id}}">
+            <label for="pet">Nome do Pet:</label>
+            <input type="text" name="pet" placeholder="Digite o nome do pet" value="{{consulta.pet}}">
+        </div>
+
+        <div class="form-control">
+           
+            <label for="nome_vet">Especifique o nome do Veterinário</label>
+            <input type="text" name="nome_vet" placeholder="Digite o nome do veterinário" value="{{consulta.nome_vet}}">
+        </div>
+
+        <div class="form-control">
+           
+            <label for="dono_pet">Nome do Dono do Pet</label>
+            <input type="text" name="dono_pet" placeholder="Digite o nome do Dono" value="{{consulta.dono_pet}}">
+        </div>
+
+        
+      
+        <input type="submit" value="Editar">
+    </form>
+   
