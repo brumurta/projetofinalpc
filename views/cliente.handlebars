@@ -1,26 +1,44 @@
-<h1 class="centralizar">Lista dos clientes cadastrados</h1>
-<table class="table">
-    <thead>
-        <tr>
-            
-            <th>Nome</th>
-            <th>Nome do Pet</th>
-            <th>CPF</th>
-            <th>Telefone</th>
-            
-        </tr>
-    </thead>
-    {{#each listarCliente}}
-    <tbody>
-        <tr>
-            <td>{{nome_cliente}}</td>
-            <td>{{nome_pet}}</td>
-            <td>{{cpf}}</td>
-            <td>{{telefone}}</td>
-            <td><a type="button" class="btn btn-success" href="/controlecliente/editcliente/{{cpf}}">Editar</a>
-            </td>
-            <td><a type="button" class="btn btn-danger" href="/controlecliente/removecliente/{{cpf}}">excluir</a></td>
-        </tr>
-    </tbody>
-    {{/each}}
-</table>
+<div class="container padding-top">
+  <div class="row justify-content-center">
+    <div class="col-md-6 esticar">
+      <div class="card shadow">
+        <div class="card-body">
+          <h1 class="centralizar">Lista dos clientes cadastrados</h1>
+          <table class="table">
+            <thead>
+              <tr>
+
+                <th>Nome</th>
+                <th>Nome do Pet</th>
+                <th>CPF</th>
+                <th>Telefone</th>
+
+              </tr>
+            </thead>
+            {{#each listarCliente}}
+              <tbody>
+                <tr>
+                  <td>{{nome_cliente}}</td>
+                  <td>{{nome_pet}}</td>
+                  <td>{{cpf}}</td>
+                  <td>{{telefone}}</td>
+                  <td><a
+                      type="button"
+                      class="btn btn-success"
+                      href="/controlecliente/editcliente/{{cpf}}"
+                    >Editar</a>
+                  </td>
+                  <td><a
+                      type="button"
+                      class="btn btn-danger"
+                      href="/controlecliente/removecliente/{{cpf}}"
+                    >excluir</a></td>
+                </tr>
+              </tbody>
+            {{/each}}
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

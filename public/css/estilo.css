@@ -2,7 +2,6 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-
 }
 form {
   text-align: center;
@@ -18,15 +17,11 @@ input{
 }
 
 footer {
-  /* border: 2px solid red; */
   bottom: 0;
   width: 100%;
-  height: auto;
-  display: block;
 }
 body {
   min-height: 100%;
-   
 }
 .bg-azul {
   background-color: #05071d;
@@ -36,10 +31,20 @@ body {
   background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(../img/fundo_cao.png);
   background-size: cover;
   background-position: center;
-
 }
 
 .logo{
   width: 90px;
   height: 90px;
+}
+.logo-footer{
+  width: 100px;
+  height: 100px;
+}
+.esticar{
+  width: 100%;
+  
+}
+.padding-top{
+  padding-top: 30px;
 }

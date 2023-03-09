@@ -1,29 +1,47 @@
-<h1 class="centralizar">Lista de consultas</h1>
-<table class="table">
-     <thead>
-        <tr>
-            <th>id</th>
-            <th>Pet</th>
-            <th>Veterinário</th>
-            <th>Dono do Pet</th>
-            <th></th>
-            <th></th>
+<div class="container padding-top">
+  <div class="row justify-content-center">
+    <div class="col-md-6 esticar">
+      <div class="card shadow">
+        <div class="card-body">
+          <h1 class="centralizar">Lista de consultas</h1>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>id</th>
+                <th>Pet</th>
+                <th>Veterinário</th>
+                <th>Dono do Pet</th>
+                <th></th>
+                <th></th>
 
-        </tr>
-    </thead>
-    {{#each listarConsulta}}
-   
-    <tbody>
-        <tr>
-            <td>{{id}}</td>
-            <td>{{pet}}</td>
-            <td>{{nome_vet}}</td>
-            <td>{{dono_pet}}</td>
-            
-            <td><a type="button" class="btn btn-success" href="/controleconsulta/editconsulta/{{id}}">Editar</a>
-            </td>
-            <td><a type="button" class="btn btn-danger" href="/controleconsulta/removeconsulta/{{id}}">excluir</a></td>
-        </tr>
-    </tbody>
-    {{/each}}
-</table>
+              </tr>
+            </thead>
+            {{#each listarConsulta}}
+
+              <tbody>
+                <tr>
+                  <td>{{id}}</td>
+                  <td>{{pet}}</td>
+                  <td>{{nome_vet}}</td>
+                  <td>{{dono_pet}}</td>
+
+                  <td><a
+                      type="button"
+                      class="btn btn-success"
+                      href="/controleconsulta/editconsulta/{{id}}"
+                    >Editar</a>
+                  </td>
+                  <td><a
+                      type="button"
+                      class="btn btn-danger"
+                      href="/controleconsulta/removeconsulta/{{id}}"
+                    >excluir</a></td>
+                </tr>
+              </tbody>
+            {{/each}}
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,26 +1,44 @@
-<h1 class="centralizar">Lista dos Veterinarios</h1>
-<table class="table">
-    <thead>
-        <tr>
-            <th>Nome</th>
-            <th>Crmv</th>
-            <th>Telefone</th>
-            <th>Email</th>
-            
-        </tr>
-    </thead>
-    {{#each listarVeterinario}}
-    
-    <tbody>
-        <tr>
-            <td>{{nome}}</td>
-            <td>{{crmv}}</td>
-            <td>{{telefone}}</td>
-            <td>{{email}}</td>
-            <td><a type="button" class="btn btn-success" href="/controlevet/editvet/{{crmv}}">Editar</a>
-            </td>
-            <td><a type="button" class="btn btn-danger" href="/controlevet/removevet/{{crmv}}">excluir</a></td>
-        </tr>
-    </tbody>
-    {{/each}}
-</table>
+<div class="container padding-top">
+  <div class="row justify-content-center">
+    <div class="col-md-6 esticar">
+      <div class="card shadow">
+        <div class="card-body">
+          <h1 class="centralizar">Lista dos Veterinarios</h1>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Nome</th>
+                <th>Crmv</th>
+                <th>Telefone</th>
+                <th>Email</th>
+
+              </tr>
+            </thead>
+            {{#each listarVeterinario}}
+
+              <tbody>
+                <tr>
+                  <td>{{nome}}</td>
+                  <td>{{crmv}}</td>
+                  <td>{{telefone}}</td>
+                  <td>{{email}}</td>
+                  <td><a
+                      type="button"
+                      class="btn btn-success"
+                      href="/controlevet/editvet/{{crmv}}"
+                    >Editar</a>
+                  </td>
+                  <td><a
+                      type="button"
+                      class="btn btn-danger"
+                      href="/controlevet/removevet/{{crmv}}"
+                    >excluir</a></td>
+                </tr>
+              </tbody>
+            {{/each}}
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

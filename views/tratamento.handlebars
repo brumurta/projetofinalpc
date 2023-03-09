@@ -1,29 +1,47 @@
-<h1 class="centralizar">Lista de procedimentos</h1>
-<table class="table">
-     <thead>
-        <tr>
-            <th>id</th>
-            <th>procedimento</th>
-            <th>Especie</th>
-            <th>Preço</th>
-            <th></th>
-            <th></th>
+<div class="container padding-top">
+  <div class="row justify-content-center">
+    <div class="col-md-6 esticar">
+      <div class="card shadow">
+        <div class="card-body">
+          <h1 class="centralizar">Lista de procedimentos</h1>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>id</th>
+                <th>procedimento</th>
+                <th>Especie</th>
+                <th>Preço</th>
+                <th></th>
+                <th></th>
 
-        </tr>
-    </thead>
-    {{#each listarTratamento}}
-   
-    <tbody>
-        <tr>
-            <td>{{id_tratamento}}</td>
-            <td>{{procedimento}}</td>
-            <td>{{especie}}</td>
-            <td>{{preco}}</td>
-            
-            <td><a type="button" class="btn btn-success" href="/controletratamento/edittrat/{{id_tratamento}}">Editar</a>
-            </td>
-            <td><a type="button" class="btn btn-danger" href="/controletratamento/removetrat/{{id_tratamento}}">excluir</a></td>
-        </tr>
-    </tbody>
-    {{/each}}
-</table>
+              </tr>
+            </thead>
+            {{#each listarTratamento}}
+
+              <tbody>
+                <tr>
+                  <td>{{id_tratamento}}</td>
+                  <td>{{procedimento}}</td>
+                  <td>{{especie}}</td>
+                  <td>{{preco}}</td>
+
+                  <td><a
+                      type="button"
+                      class="btn btn-success"
+                      href="/controletratamento/edittrat/{{id_tratamento}}"
+                    >Editar</a>
+                  </td>
+                  <td><a
+                      type="button"
+                      class="btn btn-danger"
+                      href="/controletratamento/removetrat/{{id_tratamento}}"
+                    >excluir</a></td>
+                </tr>
+              </tbody>
+            {{/each}}
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
