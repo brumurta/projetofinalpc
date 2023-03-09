@@ -2,11 +2,17 @@
 
 <img width="900" alt="menu" src="https://github.com/Isabellabarroos/projeto-final/blob/main/public/img/homeproj.PNG?raw=true">
 
+## MODELO MER NO BR MODELO
+
+<img width="900" alt="menu" src="https://github.com/brumurta/projetofinalpc/blob/main/public/img/modelor%20mer.png?raw=true">
+
 ## PROPOSTA DO GRUPO
 
 O site é focado em uma veterinária chamada PETLÂNDIA que tem como objetivo cadastrar informações seja como clientes, pets, veterinários, consultas e tipos de tratamentos, no total foram criadas 5 entidades, que se relacionam. 
 
 Nosso foco com esse site é facilitar ao cadastrante de forma simples e objetiva, a fim de que poupe o seu tempo sem muita complicação. 
+
+Vale lembrar, que o site está todo responsivo com todas as rotas funcionando.
 
 ## INSTALANDO O PROJETO EM SUA MÁQUINA
 
