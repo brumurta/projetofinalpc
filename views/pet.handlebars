@@ -4,21 +4,21 @@
       <div class="card shadow">
         <div class="card-body">
           <h1 class="centralizar">Lista dos Pets</h1>
-          <table class="table">
-            <thead>
-              <tr>
-                <th>id</th>
-                <th>nome</th>
+          <table class="table table-hover">
+            <thead >
+              <tr class="table-group-divider">
+                <th>Nome</th>
                 <th>Dono</th>
                 <th>Raça</th>
                 <th>Idade</th>
                 <th>Peso</th>
+                <th></th>
+                <th></th>
               </tr>
             </thead>
             {{#each listarPet}}
-              <tbody>
+              <tbody >
                 <tr>
-                  <td>{{id}}</td>
                   <td>{{nome_pet}}</td>
                   <td>{{nome_dono}}</td>
                   <td>{{raca}}</td>

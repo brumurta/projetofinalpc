@@ -4,23 +4,20 @@
       <div class="card shadow">
         <div class="card-body">
           <h1 class="centralizar">Lista de consultas</h1>
-          <table class="table">
+          <table class="table table-hover">
             <thead>
-              <tr>
-                <th>id</th>
+              <tr class="table-group-divider">
                 <th>Pet</th>
                 <th>Veterinário</th>
                 <th>Dono do Pet</th>
                 <th></th>
                 <th></th>
-
               </tr>
             </thead>
             {{#each listarConsulta}}
 
-              <tbody>
+              <tbody >
                 <tr>
-                  <td>{{id}}</td>
                   <td>{{pet}}</td>
                   <td>{{nome_vet}}</td>
                   <td>{{dono_pet}}</td>

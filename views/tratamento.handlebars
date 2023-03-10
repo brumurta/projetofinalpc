@@ -4,23 +4,21 @@
       <div class="card shadow">
         <div class="card-body">
           <h1 class="centralizar">Lista de procedimentos</h1>
-          <table class="table">
+          <table class="table table-hover">
             <thead>
-              <tr>
-                <th>id</th>
-                <th>procedimento</th>
+              <tr class="table-group-divider">
+                <th>Procedimento</th>
                 <th>Especie</th>
                 <th>Preço</th>
                 <th></th>
                 <th></th>
-
               </tr>
             </thead>
             {{#each listarTratamento}}
 
               <tbody>
                 <tr>
-                  <td>{{id_tratamento}}</td>
+                  
                   <td>{{procedimento}}</td>
                   <td>{{especie}}</td>
                   <td>{{preco}}</td>
